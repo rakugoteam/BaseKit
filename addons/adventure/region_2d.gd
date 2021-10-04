@@ -1,8 +1,8 @@
 extends Polygon2D
-class_name Button2D, "res://addons/Rakugo/icons/button_2d.svg"
+class_name Button2D, # "res://addons/Rakugo/icons/button_2d.svg"
 
 export var use_global_theme := false
-export var theme: Resource
+export var theme: Theme
 export var hover_color := Color.blue
 export var highlight_color := Color.white
 export var pressed_color := Color.darkblue
@@ -22,16 +22,18 @@ signal mouse_exited
 signal pressed
 
 func _ready() -> void:
-	if use_global_theme:
-		theme = load(Settings.get(SettingsList.theme))
+	# if use_global_theme:
+	# 	theme = load(Settings.get(SettingsList.theme))
 
-	if theme and theme is RakugoTheme:
-		theme = theme as RakugoTheme
-		hover_color = theme.hover_node_color
-		highlight_color = theme.focus_node_color
-		idle_color = theme.idle_node_color
-		disabled_color = theme.disable_node_color
-		pressed_color = theme.pressed_node_color
+	if theme:
+		idle_color = _get_color("font_color")
+		hover_color = _get_color("font_color_hover")
+		highlight_color = _get_color("font_color_hover")
+		pressed_color = _get_color("font_color_pressed")
+		disabled_color = _get_color("font_color_disabled")
+
+func _get_color(property:String) -> Color:
+	return theme.get("Button/colors/" + property)
 
 func _set_disabled(value:bool) -> void:
 	_disabled = value
