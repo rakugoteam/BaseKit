@@ -10,7 +10,6 @@ polygon = PoolVector2Array( -1.01175, -42.0029, -44.4178, 13.8899, 2.55588, 63.8
 script = ExtResource( 1 )
 hover_color = Color( 0.360784, 0.517647, 0.752941, 1 )
 highlight_color = Color( 0.4606, 0.98, 0.867463, 1 )
-pressed_color = Color( 0.2175, 0.4305, 0.75, 1 )
 disabled_color = Color( 0.474, 0.5307, 0.6, 1 )
 
 [connection signal="disabled_changed" from="TestRegion2D" to="TestRegion2D" method="_on_disabled_changed"]

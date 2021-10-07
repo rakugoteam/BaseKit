@@ -32,7 +32,7 @@ func _get_pressed() -> bool:
 	return _pressed
 
 func _process(delta):
-	if not _disabled and not _pressed:
+	if not _disabled:
 		var mouse_position = get_local_mouse_position()
 		is_mouse_in = Geometry.is_point_in_polygon(mouse_position, polygon)
 		
@@ -46,7 +46,7 @@ func _process(delta):
 
 func _input(event:InputEvent) -> void:
 	if is_mouse_in:
-		if not _pressed and not _disabled:
+		if not _disabled:
 			if event is InputEventMouseButton:
 				var button = event as InputEventMouseButton
 				if button.button_index == BUTTON_LEFT:

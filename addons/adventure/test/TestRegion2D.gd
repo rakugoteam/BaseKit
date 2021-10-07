@@ -2,7 +2,6 @@ extends "res://addons/adventure/nodes/Region2D.gd"
 
 export var hover_color := Color.blue
 export var highlight_color := Color.white
-export var pressed_color := Color.darkblue
 export var disabled_color := Color.gray
 
 func _on_highlighted(is_highlighted):
@@ -18,7 +17,6 @@ func _on_mouse_exited():
 	modulate = Color.white
 
 func _on_pressed():
-	modulate = pressed_color
 	print("pressed")
 
 func _on_disabled_changed(is_disabled):
