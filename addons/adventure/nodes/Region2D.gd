@@ -1,4 +1,5 @@
 extends Polygon2D
+class_name Region2D, "res://addons/adventure/icons/Region2D.svg"
 
 export var disabled : bool setget _set_disabled, _get_disabled
 export var pressed : bool setget _set_pressed, _get_pressed
