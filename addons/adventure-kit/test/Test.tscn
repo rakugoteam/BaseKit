@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/adventure-kit/test/TestRegion2D.gd" type="Script" id=1]
+
+[node name="Test" type="Node2D"]
+
+[node name="TestRegion2D" type="Polygon2D" parent="."]
+position = Vector2( 469.087, 233.568 )
+polygon = PoolVector2Array( -1.01175, -42.0029, -44.4178, 13.8899, 2.55588, 63.8365, 53.6918, 9.13303 )
+script = ExtResource( 1 )
+hover_color = Color( 0.360784, 0.517647, 0.752941, 1 )
+highlight_color = Color( 0.4606, 0.98, 0.867463, 1 )
+disabled_color = Color( 0.474, 0.5307, 0.6, 1 )

@@ -9,4 +9,4 @@ func _plugging():
     plug("rakugoteam/Rakugo")
     
     ## comment-out if of you don't want to update kit itself
-    plug("rakugoteam/VisualNovelKit")
+    plug("rakugoteam/AdventureKit")
