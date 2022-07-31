@@ -300,13 +300,13 @@ func _on_change_page(page, incremental_change):
 	match page:
 		0:
 			var value = clamp(Kit.saves_ui_page + incremental_change, -2, 1000)
-			ProjectSettings.set_setting(Kit.saves_ui_page, value)
+			Kit.saves_ui_page = value
 		"Q":
-			ProjectSettings.set_setting(Kit.saves_ui_page, -1)
+			Kit.saves_ui_page = -1
 		"A":
-			ProjectSettings.set_setting(Kit.saves_ui_page, -2)
+			Kit.saves_ui_page = -2
 		_:
-			ProjectSettings.set_setting(Kit.saves_ui_page, int(page))
+			Kit.saves_ui_page = int(page)
 
 	emit_signal("page_changed")
 
