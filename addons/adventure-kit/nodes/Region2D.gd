@@ -19,6 +19,8 @@ signal pressed
 
 func _set_disabled(value:bool) -> void:
 	_disabled = value
+	set_process(!value)
+	set_process_input(!value)
 
 func _get_disabled() -> bool:
 	emit_signal("disabled_changed", _disabled)
@@ -33,17 +35,16 @@ func _get_pressed() -> bool:
 	return _pressed
 
 func _process(delta):
-	if not _disabled:
-		var mouse_position = get_local_mouse_position()
-		is_mouse_in = Geometry.is_point_in_polygon(mouse_position, polygon)
-		
-		if is_mouse_in:
-			emit_signal("mouse_entered")
-			was_mouse_in = true
+	var mouse_position = get_local_mouse_position()
+	is_mouse_in = Geometry.is_point_in_polygon(mouse_position, polygon)
+	
+	if is_mouse_in:
+		emit_signal("mouse_entered")
+		was_mouse_in = true
 
-		elif was_mouse_in:
-			emit_signal("mouse_exited")
-			was_mouse_in = false
+	elif was_mouse_in:
+		emit_signal("mouse_exited")
+		was_mouse_in = false
 
 func _input(event:InputEvent) -> void:
 	if is_mouse_in:

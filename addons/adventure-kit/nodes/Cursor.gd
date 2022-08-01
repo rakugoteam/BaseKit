@@ -36,7 +36,11 @@ func _ready():
 	play(animation)
 
 func update_cursor():
-	Input.set_custom_mouse_cursor(get_anim_frame(frame), Input.CURSOR_ARROW, get_hotspot())
+	Input.set_custom_mouse_cursor(
+		get_anim_frame(frame),
+		Input.CURSOR_ARROW,
+		get_hotspot()
+	)
 
 func _process(delta):
 	update_cursor()
