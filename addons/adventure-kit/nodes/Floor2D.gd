@@ -4,12 +4,20 @@ class_name Floor2D
 export var character_speed := 400.0
 export var _character : NodePath
 
+var input_disabled := true setget _set_input_disabled, _get_input_disabled
+
 onready var character : Node2D = get_node(_character)
 var path = []
 
 func _process(delta):
 	var walk_distance = character_speed * delta
 	_move_along_path(walk_distance)
+
+func _set_input_disabled(disabled:bool):
+	set_process_input(!disabled)
+
+func _get_input_disabled() -> bool:
+	return !is_processing_input()
 
 func walk_to(pos: Vector2):
 	var ch_pos = character.position
