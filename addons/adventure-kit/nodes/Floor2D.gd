@@ -9,7 +9,12 @@ var path = []
 
 func _process(delta):
 	var walk_distance = character_speed * delta
-	move_along_path(walk_distance)
+	_move_along_path(walk_distance)
+
+func walk_to(pos: Vector2):
+	var ch_pos = character.position
+	var mouse_pos = get_local_mouse_position()
+	_update_navigation_path(ch_pos, pos)
 
 # The "click" event is a custom input action defined in
 # Project > Project Settings > Input Map tab.
@@ -17,11 +22,9 @@ func _input(event):
 	if not event.is_action_pressed("left_click"):
 		return
 	
-	var ch_pos = character.position
-	var mouse_pos = get_local_mouse_position()
-	_update_navigation_path(ch_pos, mouse_pos)
+	walk_to(get_local_mouse_position())
 
-func move_along_path(distance):
+func _move_along_path(distance):
 	var last_point = character.position
 	while path.size():
 		var distance_between_points = last_point.distance_to(path[0])
