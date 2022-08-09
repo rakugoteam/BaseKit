@@ -12,6 +12,6 @@ mono_crash.*.*.json
 /.plugged/
 /addons/*
 !addons/gd-plug
-!addons/adventure-kit
+!addons/kit
 .vscode/
 *.ini

@@ -6,7 +6,8 @@ func _plugging():
     plug("rakugoteam/Emojis-For-Godot", {"include": ["addons", ".import/"]})
     plug("rakugoteam/Godot-Material-Icons", {"include": ["addons", ".import/"]})
     plug("rakugoteam/AdvancedText")
-    plug("rakugoteam/Rakugo")
-    
-    ## comment-out if of you don't want to update kit itself
-    plug("rakugoteam/AdventureKit")
+    plug("rakugoteam/Rakugo", {"include": ["addons/rakugo", ".import/"]})
+    plug("rakugoteam/BaseKit", {
+        "include": ["addons/kit", "addons/gd-plug"],
+        "exclude": ["addons/kit/plugin.cfg"]
+    })
